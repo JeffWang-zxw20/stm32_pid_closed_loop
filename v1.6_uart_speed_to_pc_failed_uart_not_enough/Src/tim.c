@@ -107,7 +107,7 @@ void MX_TIM8_Init(void)
   TIM_IC_InitTypeDef sConfigIC = {0};
 
   htim8.Instance = TIM8;
-  htim8.Init.Prescaler = 167;
+  htim8.Init.Prescaler = 40;
   htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim8.Init.Period = 19999;
   htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -174,23 +174,24 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
     */
     GPIO_InitStruct.Pin = GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN; //change to Pull down??? original:GPIO_PULLUP
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM8;
     HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = GPIO_PIN_6;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN;  //change to Pull down??? original:GPIO_PULLUP
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM8;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     /* TIM8 interrupt Init */
-    HAL_NVIC_SetPriority(TIM8_CC_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
+    HAL_NVIC_SetPriority(TIM8_CC_IRQn, 2, 0);  //change to 2,0??
+    HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);   //change to jusst IRQN?
   /* USER CODE BEGIN TIM8_MspInit 1 */
-	//GPIO_PinAFConfig(GPIOC,GPIO_PinSource0,GPIO_AF_TIM5)
+	HAL_TIM_IC_Start_IT(&htim8,TIM_CHANNEL_1);   //Possible bugs the position in the whole file
+    __HAL_TIM_ENABLE_IT(&htim8,TIM_IT_UPDATE);   //使能更新中断
   /* USER CODE END TIM8_MspInit 1 */
   }
 }
@@ -313,8 +314,8 @@ call when IRQH is used
 			
 			t8ch1_cap_sta|=0X80;				//Flag capture the whole high vol
             t8ch1_cap_val=HAL_TIM_ReadCapturedValue(&htim8,TIM_CHANNEL_1);//GET CAPTURE VALUE!!!!!!
-			TIM_RESET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1);   //RESET!----useless for pid?
-            TIM_SET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);//Reset to cpature rising edge
+			//TIM_RESET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1);   //RESET!----useless for pid?
+            //TIM_SET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);//Reset to cpature rising edge
 																						//ready to do the next capture
 		}else  										//means this capture is the first rising edge, we need immediately set count to zero
 													//so that we can count how long it is.
@@ -324,11 +325,11 @@ call when IRQH is used
 			t8ch1_cap_sta|=0X40;				//flag that captured the rising edge
 			__HAL_TIM_DISABLE(&htim8);      	//close timer 8
 			__HAL_TIM_SET_COUNTER(&htim8,0);
-			TIM_RESET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1);   //clear setting 
+			//TIM_RESET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1);   //clear setting 
 			//TIM_SET_CAPTUREPOLARITY(&TIM5_Handler,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);//reset to capture the falling edge
 			
 			//for pid, set this to capture rising edge again
-			TIM_SET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);//reset to capture the falling edge
+			//TIM_SET_CAPTUREPOLARITY(&htim8,TIM_CHANNEL_1,TIM_ICPOLARITY_RISING);//reset to capture the falling edge
 			__HAL_TIM_ENABLE(&htim8);		//open timer 5 again.
 		}		    
 	}		

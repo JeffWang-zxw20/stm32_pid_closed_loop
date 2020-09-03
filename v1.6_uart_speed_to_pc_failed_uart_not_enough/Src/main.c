@@ -25,7 +25,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <stdarg.h>
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -74,13 +76,17 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	long long temp=0;
+	//long long temp=0;
+	
+	int temp=0;
 	double RPM_now=0;
 	double pwm_out;
 	double motor_out= 1500;
 	double kp=30;
 	double ki=0.1;
 	double kd=0.1;
+	char str[12];
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -129,6 +135,7 @@ int main(void)
 	HAL_UART_Transmit(&huart1, "100000----\r\n", 12, 100);
 	HAL_GPIO_WritePin(LED_G_GPIO_Port, LED_G_Pin, GPIO_PIN_SET);
 	HAL_Delay(2000);
+	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1500);
 	HAL_GPIO_WritePin(LED_G_GPIO_Port, LED_G_Pin, GPIO_PIN_RESET);
 	HAL_Delay(2000);
 //	HAL_Delay(50000);
@@ -164,7 +171,8 @@ int main(void)
 											// so it refers to how many overflows 
 			temp*=0XFFFFFFFF;		 	    	//65536 is OXFFFF	
 			temp+=(t8ch1_cap_val);      //THE time when the falling edge has occured
-			HAL_UART_Transmit(&huart1, temp, 12, 100);
+			sprintf(str, "%d", temp);
+			HAL_UART_Transmit(&huart1, str, 12, 100);
 		}
 			//printf("HIGH:%lld us\r\n",temp);//print to chuangkou via uart
 //			//pid part RPM = 60/T
