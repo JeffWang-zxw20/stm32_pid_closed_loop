@@ -59,11 +59,19 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
 //I'd like to thank this author who did me such a huge favour.
 //https://controllerstech.com/how-to-use-input-capture-in-stm32/
+
+
+//testing
+uint16_t cont1 =0;
+//uint8_t conthz =0;
+float t_pwm = 1600;
+uint16_t ref_hz = 300;
+
+//capture freq
 char str[12];
+char str2[12];
 float main_clock_freq = 168e6;
 uint16_t psc_val = 2564;     ///range = 1hz to 13kHZ
 uint16_t ARR_val = 0xffff;
@@ -73,6 +81,19 @@ float IC_Value2=0.0;
 float Diff = 0.0;
 float freq = 0.0;
 uint8_t Is_first_capture=0; //0-not captured, 1- captured
+
+
+//pid part
+float freq_to_m_rpm;
+float motor_to_wheel;
+float e_pre=0;
+float e_now=0;
+float delta_e=0;
+float delta_t=1;  //This is changing, hard to capture?
+float I_e=0;
+float kp=0.001;
+float ki=0.00005;
+float kd=0.00001;
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
@@ -132,7 +153,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 									//so detectable range is 35.6 to 466 khz
 
 									//for psc = 2564  range = 1hz to 13kHZ
-									//Might change to this psc in the future
+									//Might change to this psc in the future---- did --very good result
 									*/
 			
 		
@@ -176,6 +197,7 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+	
     HAL_TIM_Base_Start(&htim1);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
@@ -184,6 +206,9 @@ int main(void)
 	//Tim8 ch1 for capture 
 	HAL_TIM_IC_Start_IT(&htim8,TIM_CHANNEL_1);
 	timer_counting_freq = main_clock_freq/psc_val;
+	HAL_Delay(5000);
+	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1600);
+	HAL_Delay(3000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -193,16 +218,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  	sprintf(str, "%f", freq);
-		HAL_UART_Transmit(&huart1, str, 12, 100);
-		HAL_UART_Transmit(&huart1, " ----", 12, 100);
-		HAL_Delay(100);
-//	    HAL_UART_Transmit(&huart1, "RoboMaster\r\n", 12, 100);
-//        HAL_Delay(100);
-		//motor right
-        //__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1500);
-
-
+	  /*	  
 //20ms ARR 20000
 //1600 motor: low back , wheel small to left (driver view) ----- 1.6ms ----------never give motor value greater than 1500
 //1400 motor: low forward, wheel small to left -------------------1.4ms 
@@ -213,10 +229,77 @@ int main(void)
 //right max ---- 1100  --- 1.2ms
 
 //motor
-//1500 zero ----------------------1.5ms
-//2000 max ------------------------2ms -- forward
+//1500 zero ----------------------1.5ms   ------- 0hz
+//2000 max ------------------------2ms -- forward  ---- 753~761hz
 //could be higher
 //never put value smaller than 1500;
+  */
+		sprintf(str2, "%d", ref_hz);
+		sprintf(str, "%f", freq);
+		
+		//HAL_UART_Transmit(&huart1, "Actual:", 12, 100);
+		HAL_UART_Transmit(&huart1, str, 12, 100);
+		HAL_UART_Transmit(&huart1, "    \r\n", 12, 100);
+		
+		//HAL_UART_Transmit(&huart1, "ref:", 12, 100);
+		HAL_UART_Transmit(&huart1, str2, 12, 100);
+		HAL_UART_Transmit(&huart1, "    \r\n", 12, 100);
+		//HAL_Delay(100);
+		/*  
+		cont1 ++;
+		if (cont1 >100)
+		{
+			t_pwm +=50;
+			if(t_pwm<2000)
+			{
+				__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+			}
+			else
+			{
+				t_pwm =2000;
+				__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+			}
+			__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+			cont1 = 0;
+		}
+		*/
+		cont1 ++;
+		if (cont1 >1500)
+		{
+			ref_hz +=50;
+			if(ref_hz<700)
+			{
+				ref_hz = ref_hz;
+			}
+			else
+			{
+				ref_hz =700;
+			}
+			cont1 = 0;
+		}
+
+		e_pre = e_now; // a possible bug here
+		
+		e_now = ref_hz - freq;  //positive means low speed, so kp is positive
+		I_e += e_now;   //ki positive 
+
+		delta_e = (e_now - e_pre)/delta_t;   /// watch sign   ---- possible bugs here 
+		//if the gradient is increasing
+
+		t_pwm = kp*e_now + ki*I_e + kd*delta_e;  
+		if(t_pwm>1.0)
+		{
+			t_pwm = 1.0;
+		}				
+		if(t_pwm<-1.0) t_pwm=-1.0;	
+		
+		t_pwm =1500 + t_pwm*500; //motor moves forward range: 1500 to 2000  (1.5ms to 2ms) 
+		if(t_pwm<1500) t_pwm=1500;
+		if(t_pwm>2000) t_pwm=2000;
+		__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+//			
+//
+ 
   }
 
   /* USER CODE END 3 */
