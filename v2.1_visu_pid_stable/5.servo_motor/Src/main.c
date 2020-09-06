@@ -224,7 +224,7 @@ int main(void)
 	HAL_TIM_IC_Start_IT(&htim8,TIM_CHANNEL_1);
 	timer_counting_freq = main_clock_freq/psc_val;
 	HAL_Delay(8000);
-	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1600);
+	//__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1600);
 	HAL_Delay(3000);
   /* USER CODE END 2 */
 
@@ -263,6 +263,7 @@ int main(void)
 //		HAL_UART_Transmit(&huart1, "    \r\n", 12, 100);
 //		
 		//--------------------------------------ANO-----------------------------------------------//
+//		
 		HAL_Delay(20);  //20ms
 		Test_Send_User(ref_hz,freq,3,4,5,6,7,8,9,10);
 		//--------------------------------------ANO-----------------------------------------------//
@@ -287,88 +288,88 @@ int main(void)
 		}
 		*/
 		
-		if(flip==0)
-		{
-			cont1 ++;
-			if (cont1 >5)
-				{
-					ref_hz +=5;
-					if(ref_hz<700)
-					{
-						ref_hz = ref_hz;
-					}
-					else
-					{
-						ref_hz =700;
-					}
-					
-					times ++;
-					
-					if(times >100)
-					{
-						flip=1;
-						times = 0;
-					}
-						
-					
-					cont1 = 0;
-				}
-			
-		}
-		
-		if(flip==1)
-		{
-			cont1 ++;
-			if (cont1 >5)
-				{
-					ref_hz -=5;
-					if(ref_hz<701 && ref_hz>200)
-					{
-						ref_hz = ref_hz;
-					}
-					else
-					{
-						ref_hz =200;
-					}
-					
-					times ++;
-					
-					if(times >100)
-					{
-						flip=0;
-						times = 0;
-					}
-					
-					cont1 = 0;
-				}
-				
-		}
-		
-		
-		
-
-
-		e_pre = e_now; // a possible bug here
-		
-		e_now = ref_hz - freq;  //positive means low speed, so kp is positive
-		I_e += e_now;   //ki positive 
-
-		delta_e = (e_now - e_pre)/delta_t;   /// watch sign   ---- possible bugs here 
-		//if the gradient is increasing
-
-		t_pwm = kp*e_now + ki*I_e + kd*delta_e;  
-		if(t_pwm>1.0)
-		{
-			t_pwm = 1.0;
-		}				
-		if(t_pwm<-1.0) t_pwm=-1.0;	
-		
-		t_pwm =1500 + t_pwm*500; //motor moves forward range: 1500 to 2000  (1.5ms to 2ms) 
-		if(t_pwm<1500) t_pwm=1500;
-		if(t_pwm>2000) t_pwm=2000;
-		__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+//		if(flip==0)
+//		{
+//			cont1 ++;
+//			if (cont1 >100)
+//				{
+//					ref_hz +=600;
+//					if(ref_hz<700)
+//					{
+//						ref_hz = ref_hz;
+//					}
+//					else
+//					{
+//						ref_hz =400;
+//					}
+//					
+//					times ++;
+//					
+//					if(times >1)
+//					{
+//						flip=1;
+//						times = 0;
+//					}
+//						
+//					
+//					cont1 = 0;
+//				}
 //			
-//
+//		}
+//		
+//		if(flip==1)
+//		{
+//			cont1 ++;
+//			if (cont1 >100)
+//				{
+//					ref_hz -=600;
+//					if(ref_hz<701 && ref_hz>200)
+//					{
+//						ref_hz = ref_hz;
+//					}
+//					else
+//					{
+//						ref_hz =200;
+//					}
+//					
+//					times ++;
+//					
+//					if(times >1)
+//					{
+//						flip=0;
+//						times = 0;
+//					}
+//					
+//					cont1 = 0;
+//				}
+//				
+//		}
+//		
+//		
+		
+
+
+//		e_pre = e_now; // a possible bug here
+//		
+//		e_now = ref_hz - freq;  //positive means low speed, so kp is positive
+//		I_e += e_now;   //ki positive 
+
+//		delta_e = (e_now - e_pre)/delta_t;   /// watch sign   ---- possible bugs here 
+//		//if the gradient is increasing
+
+//		t_pwm = kp*e_now + ki*I_e + kd*delta_e;  
+//		if(t_pwm>1.0)
+//		{
+//			t_pwm = 1.0;
+//		}				
+//		if(t_pwm<-1.0) t_pwm=-1.0;	
+//		
+//		t_pwm =1500 + t_pwm*500; //motor moves forward range: 1500 to 2000  (1.5ms to 2ms) 
+//		if(t_pwm<1500) t_pwm=1500;
+//		if(t_pwm>2000) t_pwm=2000;
+//		__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
+////			
+////
  
   }
 
