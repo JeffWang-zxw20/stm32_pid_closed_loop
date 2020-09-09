@@ -1,0 +1,107 @@
+Dependencies for Project 'Project_AS3x5x6x', Target 'AS62': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
+F (.\Source_Files\app\main.c)(0x581AACE3)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\main.o --omf_browse ..\output\main.crf --depend ..\output\main.d)
+I (.\Source_Files\drv_mcu\inc\drv_delay.h)(0x57FF0BB3)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_tim.h)(0x49FD136E)
+I (.\Source_Files\drv_mcu\inc\drv_uart.h)(0x57FE0038)
+I (.\Source_Files\drv_mcu\inc\drv_led.h)(0x57FDA646)
+I (.\Source_Files\drv_periph\inc\drv_AS62.h)(0x581AA19F)
+F (.\Source_Files\drv_mcu\src\drv_delay.c)(0x5819921E)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\drv_delay.o --omf_browse ..\output\drv_delay.crf --depend ..\output\drv_delay.d)
+I (.\Source_Files\drv_mcu\inc\drv_delay.h)(0x57FF0BB3)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_tim.h)(0x49FD136E)
+F (.\Source_Files\drv_mcu\src\drv_led.c)(0x5811AA02)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\drv_led.o --omf_browse ..\output\drv_led.crf --depend ..\output\drv_led.d)
+I (.\Source_Files\drv_mcu\inc\drv_led.h)(0x57FDA646)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\drv_mcu\src\drv_uart.c)(0x581A9E46)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\drv_uart.o --omf_browse ..\output\drv_uart.crf --depend ..\output\drv_uart.d)
+I (.\Source_Files\drv_mcu\inc\drv_uart.h)(0x57FE0038)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\src\core_cm3.c)(0x49FD136C)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\core_cm3.o --omf_browse ..\output\core_cm3.crf --depend ..\output\core_cm3.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+F (.\Source_Files\Std_lib\src\stm32f10x_gpio.c)(0x49FD136E)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\stm32f10x_gpio.o --omf_browse ..\output\stm32f10x_gpio.crf --depend ..\output\stm32f10x_gpio.d)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\src\stm32f10x_rcc.c)(0x49FD136E)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\stm32f10x_rcc.o --omf_browse ..\output\stm32f10x_rcc.crf --depend ..\output\stm32f10x_rcc.d)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\src\stm32f10x_tim.c)(0x49FD136E)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\stm32f10x_tim.o --omf_browse ..\output\stm32f10x_tim.crf --depend ..\output\stm32f10x_tim.d)
+I (.\Source_Files\Std_lib\inc\stm32f10x_tim.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\src\stm32f10x_usart.c)(0x49FD136E)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\stm32f10x_usart.o --omf_browse ..\output\stm32f10x_usart.crf --depend ..\output\stm32f10x_usart.d)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\src\system_stm32f10x.c)(0x49FD136C)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\system_stm32f10x.o --omf_browse ..\output\system_stm32f10x.crf --depend ..\output\system_stm32f10x.d)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)
+F (.\Source_Files\Std_lib\startup\startup_stm32f10x_hd.s)(0x57F9BB02)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 531" --pd "STM32F10X_HD SETA 1"--list ..\output\startup_stm32f10x_hd.lst --xref -o ..\output\startup_stm32f10x_hd.o --depend ..\output\startup_stm32f10x_hd.d)
+F (.\Source_Files\drv_periph\src\drv_AS62.c)(0x5CF49743)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\Source_Files\drv_mcu\inc -I .\Source_Files\Std_lib\inc -I .\Source_Files\Std_lib\startup -I .\Source_Files\drv_periph\inc-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD-o ..\output\drv_as62.o --omf_browse ..\output\drv_as62.crf --depend ..\output\drv_as62.d)
+I (.\Source_Files\drv_periph\inc\drv_AS62.h)(0x581AA19F)
+I (.\Source_Files\drv_mcu\inc\drv_uart.h)(0x57FE0038)
+I (.\Source_Files\Std_lib\inc\stm32f10x_rcc.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x.h)(0x57F992F7)
+I (.\Source_Files\Std_lib\inc\core_cm3.h)(0x49FD136C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
+I (.\Source_Files\Std_lib\inc\system_stm32f10x.h)(0x49FD136C)
+I (.\Source_Files\Std_lib\inc\stm32f10x_conf.h)(0x58198EED)
+I (.\Source_Files\Std_lib\inc\stm32f10x_gpio.h)(0x49FD136E)
+I (.\Source_Files\Std_lib\inc\stm32f10x_usart.h)(0x49FD136E)

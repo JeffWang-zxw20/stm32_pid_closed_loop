@@ -1,0 +1,13 @@
+..\output\drv_as62.o: Source_Files\drv_periph\src\drv_AS62.c
+..\output\drv_as62.o: .\Source_Files\drv_periph\inc\drv_AS62.h
+..\output\drv_as62.o: .\Source_Files\drv_mcu\inc\drv_uart.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x_rcc.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\core_cm3.h
+..\output\drv_as62.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\system_stm32f10x.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x_conf.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x_gpio.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x_rcc.h
+..\output\drv_as62.o: .\Source_Files\Std_lib\inc\stm32f10x_usart.h

@@ -1,0 +1,15 @@
+..\output\main.o: Source_Files\app\main.c
+..\output\main.o: .\Source_Files\drv_mcu\inc\drv_delay.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_rcc.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x.h
+..\output\main.o: .\Source_Files\Std_lib\inc\core_cm3.h
+..\output\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\output\main.o: .\Source_Files\Std_lib\inc\system_stm32f10x.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_conf.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_gpio.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_rcc.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_usart.h
+..\output\main.o: .\Source_Files\Std_lib\inc\stm32f10x_tim.h
+..\output\main.o: .\Source_Files\drv_mcu\inc\drv_uart.h
+..\output\main.o: .\Source_Files\drv_mcu\inc\drv_led.h
