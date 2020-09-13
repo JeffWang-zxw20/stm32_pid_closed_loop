@@ -543,7 +543,7 @@ void Test_Send_User (int16_t data1, int16_t data2, int16_t data3,
 		
 	testdatatosend[_cnt++]=sum;   //sum is the sum check bits, the last bits in the signal
 	
-	TestSendData(testdatatosend, _cnt);  //not using dma
+	TestSendData(testdatatosend, _cnt);  //using dma
 	//HAL_UART_Transmit_DMA(&huart1,testdatatosend,_cnt);
 	//usart1_tx_dma_enable(testdatatosend,_cnt); //use dma
 }
