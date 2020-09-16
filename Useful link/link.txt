@@ -4,3 +4,7 @@ https://www.cnblogs.com/lailai-laird/p/12618786.html
 
 didaclock
 http://www.mculover666.cn/posts/4283984198/
+
+
+ros_stm32_serial_commu
+https://blog.csdn.net/zhao_ke_xue/article/details/105493907

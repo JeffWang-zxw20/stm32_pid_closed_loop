@@ -1,6 +1,6 @@
 Dependencies for Project 'USART', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (.\main.c)(0x5F2828DB)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5F60BAD0)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\STM32F10x_FWLib\inc -I ..\CORE -I ..\HARDWARE-I"C:\Users\Yan Shi\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x5F28AB2E)
 I (..\SYSTEM\sys\sys.h)(0x5F28AB17)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
