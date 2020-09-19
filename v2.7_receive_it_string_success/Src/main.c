@@ -264,6 +264,7 @@ int main(void)
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 1500);
+	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, 1500);
 	//Tim8 ch1 for capture 
 	HAL_TIM_IC_Start_IT(&htim8,TIM_CHANNEL_1);
 	__HAL_UART_ENABLE_IT(&huart1,UART_IT_TC); /////Must have this !!!!!!!!
