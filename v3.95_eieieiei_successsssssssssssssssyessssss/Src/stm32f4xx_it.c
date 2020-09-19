@@ -45,14 +45,14 @@
 /* USER CODE BEGIN PV */
 
 
-extern uint8_t USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
+//extern uint8_t USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
 //接收状态
 //bit15，	接收完成标志
 //bit14，	接收到0x0d
 //bit13~0，	接收到的有效字节数目
-extern uint16_t USART_RX_STA;       //接收状态标记	
+//extern uint16_t USART_RX_STA;       //接收状态标记	
 
-extern uint8_t aRxBuffer[RXBUFFERSIZE];//HAL库使用的串口接收缓冲
+//extern uint8_t aRxBuffer[RXBUFFERSIZE];//HAL库使用的串口接收缓冲
 
 
 /* USER CODE END PV */
