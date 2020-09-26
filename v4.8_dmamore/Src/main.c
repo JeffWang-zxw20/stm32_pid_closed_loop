@@ -494,8 +494,12 @@ DJI_controller
 		
 
 	
+
+	testRece1 = local_ros_ctrl->ros.data[0];
+	testRece2 = local_ros_ctrl->ros.data[1];
 //-------------------------------------PID----------------------------------------------------//
-	ref_hz = local_rc_ctrl->rc.ch[1];  //ch0 : -660~+660   ref_hz: 0:700
+	//ref_hz = local_rc_ctrl->rc.ch[1];  //ch0 : -660~+660   ref_hz: 0:700
+	ref_hz = testRece1;
 	if(ref_hz<0) 
 	{
 		ref_hz=0;
@@ -547,8 +551,8 @@ DJI_controller
 	*/
 	
 	
-	float wheel = 1500 + 0.45*(-1)*local_rc_ctrl->rc.ch[2];  //so wheel -400 to +400
-
+	//float wheel = 1500 + 0.45*(-1)*local_rc_ctrl->rc.ch[2];  //so wheel -400 to +400
+	float wheel = 1500 + 0.45*(-1)*testRece2;
 	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, t_pwm);
 	__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, wheel);
 //----------------------------------------Rc_control_END-----------------------------------------//	
@@ -677,8 +681,8 @@ DJI_controller
 	//usartSendDouble(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],temp);
 	//usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],temp);
 	
-	testRece1 = local_ros_ctrl->ros.data[0];
-	testRece2 = local_ros_ctrl->ros.data[1];
+
+	//usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],in_rx_it);
 	usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],testRece1,testRece2,in_rx_it);
 	//__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, left.data);
 	//__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, wheel);
