@@ -653,7 +653,7 @@ DJI_controller
 			j=0;
 			k=0;
 			yes=1;
-			
+			USART_RX_STA = 0;
 			
 			
 			//usartSendData(testRece1,testRece2,testRece3,testSend4);
@@ -662,7 +662,8 @@ DJI_controller
 	//testSend1 = 
 	//usartSendData(testRece1,testRece2,testRece3,testSend4);
 	//usartSendDouble(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],temp);
-	usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],temp);
+	//usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],temp);
+	usartSendprecison(gyro[0],gyro[1],gyro[2],accel[0],accel[1],accel[2],testRece3);
 	//__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, left.data);
 	//__HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, wheel);
 //--------------------------------------------ROS_END-------------------------------------------------//	

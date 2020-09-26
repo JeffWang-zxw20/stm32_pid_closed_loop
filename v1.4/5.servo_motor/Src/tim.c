@@ -113,8 +113,6 @@ void MX_TIM8_Init(void)
   htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim8.Init.RepetitionCounter = 0;
   htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  //
-  //TIM_ITConfig(TIM8,TIM_IT_UPDATE|TIM_IT_CC1,ENABLE);
   if (HAL_TIM_Base_Init(&htim8) != HAL_OK)
   {
     Error_Handler();
@@ -138,9 +136,6 @@ void MX_TIM8_Init(void)
   sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
   sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
   sConfigIC.ICFilter = 0;
-  
-  HAL_TIM_IC_Start_IT(&htim8, TIM_CHANNEL_1); //Enable capture interrupt
-  __HAL_TIM_ENABLE_IT(&htim8, TIM_IT_UPDATE); //ENABLE INTERRUPT UPDATE
   if (HAL_TIM_IC_ConfigChannel(&htim8, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
@@ -148,7 +143,7 @@ void MX_TIM8_Init(void)
 
 }
 
-void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle) //this func will be used by HAL_TIM_Base_Init
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -174,18 +169,25 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle) //this func will be
     __HAL_RCC_GPIOI_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
     /**TIM8 GPIO Configuration
+    PI7     ------> TIM8_CH3
     PC6     ------> TIM8_CH1
     */
+    GPIO_InitStruct.Pin = GPIO_PIN_7;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF3_TIM8;
+    HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = GPIO_PIN_6;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;  //GPIO_MODE_AF_PP;  change it to input?? 
-    GPIO_InitStruct.Pull = GPIO_PULLDOWN;  //???  GPIO_PULLUP Origin   change to GPIO_PULLDOWN
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF3_TIM8;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     /* TIM8 interrupt Init */
-    HAL_NVIC_SetPriority(TIM8_CC_IRQn, 2, 0);  //origin is 0,0
+    HAL_NVIC_SetPriority(TIM8_CC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
   /* USER CODE BEGIN TIM8_MspInit 1 */
 	//GPIO_PinAFConfig(GPIOC,GPIO_PinSource0,GPIO_AF_TIM5)
@@ -246,6 +248,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
     __HAL_RCC_TIM8_CLK_DISABLE();
 
     /**TIM8 GPIO Configuration
+    PI7     ------> TIM8_CH3
     PC6     ------> TIM8_CH1
     */
     HAL_GPIO_DeInit(GPIOI, GPIO_PIN_7);

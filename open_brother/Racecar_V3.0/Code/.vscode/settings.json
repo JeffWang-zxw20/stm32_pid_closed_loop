@@ -1,0 +1,29 @@
+{
+    "files.associations": {
+        "syd.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx_hal_conf.h": "c",
+        "bsp.h": "c",
+        "arm_common_tables.h": "c",
+        "gimbal.h": "c",
+        "pid.h": "c",
+        "tools.h": "c",
+        "filter.h": "c",
+        "device.h": "c",
+        "djimotor.h": "c",
+        "typedef.h": "c",
+        "main.h": "c",
+        "gpio.h": "c",
+        "led.h": "c",
+        "arm_math.h": "c",
+        "dbus.h": "c",
+        "host.h": "c",
+        "encoder.h": "c",
+        "motor.h": "c",
+        "control.h": "c",
+        "usart.h": "c",
+        "iwdg.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.dimInactiveRegions": false
+}

@@ -8,3 +8,13 @@ http://www.mculover666.cn/posts/4283984198/
 
 ros_stm32_serial_commu
 https://blog.csdn.net/zhao_ke_xue/article/details/105493907
+
+
+priority
+https://electronics.stackexchange.com/questions/384306/stm32f4-how-are-preemption-priorities-and-sub-priorities-used
+
+
+tim6 1ms it
+https://www.cnblogs.com/xingboy/p/9897500.html
+
+
