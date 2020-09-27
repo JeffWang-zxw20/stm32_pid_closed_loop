@@ -160,8 +160,8 @@ void usart_printf(const char *fmt,...)
 uint16_t cont1 =0;
 uint8_t flip=0;
 uint8_t times=0;
-float t_pwm = 1600;
-uint16_t ref_hz = 300;
+float t_pwm = 1500;
+float ref_hz = 0.0;
 
 //capture freq
 char str[12];
